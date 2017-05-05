@@ -1,10 +1,23 @@
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat" !important;
+}
+
+::-webkit-scrollbar {
+  width: 17px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+::-webkit-scrollbar-track {
+  background: #ddd;
 }
 
 h2 {
-  font-weight   : bold;
   text-transform: capitalize;
+  font-weight   : bold;
+  font-family   : "Montserrat";
 }
 
 .fc-toolbar {
@@ -14,14 +27,17 @@ h2 {
 button {
   border-radius   : 0 !important;
   background-image: none !important;
+  padding         : .5em 1.2em !important;
+  height          : auto !important;
 }
 
 .fc-day-header {
   padding         : 8px 0 !important;
+  border-color    : #ddd;
   background-color: #f5f5f5;
   text-transform  : capitalize;
-  font-size       : 1.6rem;
-  border-color    : #ddd;
+  font-weight     : normal;
+  font-size       : 1.2rem;
 }
 
 .fc-basic-view .fc-day-number,
