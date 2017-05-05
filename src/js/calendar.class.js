@@ -1,6 +1,12 @@
-(function()
+class CalendarManager
 {
-	console.log("hello world");
-	console.log("hello world");
-	console.log("hello world");
-})();
+	constructor()
+	{
+		console.log('new calendar manager');
+	}
+
+	init()
+	{
+		$('#calendar').fullCalendar({});
+	}
+}

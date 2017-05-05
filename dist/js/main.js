@@ -1,7 +1,19 @@
-(function()
+class CalendarManager
 {
-	console.log("hello world");
-	console.log("hello world");
-	console.log("hello world");
-})();
+	constructor()
+	{
+		console.log('new calendar manager');
+	}
 
+	init()
+	{
+		$('#calendar').fullCalendar({});
+	}
+}
+
+(() => {
+	console.log('init');
+
+	let calman = new CalendarManager();
+	calman.init();
+})();
