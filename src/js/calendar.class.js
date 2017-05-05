@@ -5,19 +5,29 @@ class CalendarManager
 		this._eventsSource = [];
 		console.log('New calendar manager');
 	}
-	set eventsSource(eventsSource){this._eventsSource = eventsSource;}
-	get eventsSource(){return this._eventsSource;}
+	set eventsSource(eventsSource)
+	{
+		this._eventsSource = eventsSource;
+	}
+	get eventsSource()
+	{
+		return this._eventsSource;
+	}
 	init()
 	{
-		$('#calendar').fullCalendar({
-			customButtons: {
-				addEventButton: {
-					text: 'Add event',
+		$('#calendar').fullCalendar(
+		{
+			customButtons:
+			{
+				addEventButton:
+				{
+					text: 'Ajouter une tâche',
 					click: this.addEvent
 				}
 			},
 			dayClick: this.onDayClick,
-			header: {
+			header:
+			{
 				left: 'prev,next, today, addEventButton',
 		        center: 'title',
 		        right: 'month,agendaWeek,agendaDay',
@@ -34,6 +44,7 @@ class CalendarManager
 					columnFormat: 'dddd'
 				},
 				agendaCustomDay: {
+
 					type: 'agenda',
 					buttonText: 'Jour'
 				}
