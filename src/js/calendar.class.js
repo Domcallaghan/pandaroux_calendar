@@ -26,6 +26,7 @@ class CalendarManager
 				}
 			},
 			dayClick: this.onDayClick,
+			timezone: 'local',
 			header:
 			{
 				left: 'prev,next, today, addEventButton',
