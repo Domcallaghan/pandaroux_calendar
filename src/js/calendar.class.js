@@ -21,6 +21,12 @@ class CalendarManager
 				left: 'prev,next, today, addEventButton',
 		        center: 'title',
 		        right: 'month,agendaWeek,agendaDay'
+			},
+			views: {
+				agendaCustomDay: {
+					type: 'agenda',
+					buttonText: 'Jour'
+				}
 			}
 		});
 	}
@@ -28,20 +34,20 @@ class CalendarManager
 	addEvent()
 	{
 		console.log("dede");
-		$('#calendar').fullCalendar('addEventSource',
-			[
-				{
-		            title  : 'event1',
-		            start  : '2017-05-05'
-		        }
-			]
-		);
+		// $('#calendar').fullCalendar('addEventSource',
+		// 	[
+		// 		{
+		//             title  : 'event1',
+		//             start  : '2017-05-05'
+		//         }
+		// 	]
+		// );
 	}
 
 	onDayClick(e)
 	{
 		console.log('dayclick', e._d);
-		
+		// UIkit.modal.dialog('<p>Titre</p><button>Valider</button>');
 		// $('#calendar').fullCalendar('addEventSource',
 		// 	[
 		// 		{
