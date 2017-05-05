@@ -12,7 +12,7 @@ class CalendarManager
 		$('#calendar').fullCalendar({
 			customButtons: {
 				addEventButton: {
-					text: 'Add event',
+					text: 'Ajouter une tâche',
 					click: this.addEvent
 				}
 			},
