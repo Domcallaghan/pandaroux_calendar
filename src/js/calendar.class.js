@@ -2,7 +2,7 @@ class CalendarManager
 {
 	constructor()
 	{
-		console.log('new calendar manager');
+		console.log('New calendar manager');
 	}
 
 	init()

@@ -5,6 +5,18 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 var concat = require('gulp-concat');
+var connect = require('gulp-connect');
+
+gulp.task('connect', function() {
+    connect.server({
+      livereload: true
+    });
+});
+
+gulp.task('html', function () {
+    gulp.src('./index.html')
+      .pipe(connect.reload());
+});
 
 gulp.task('concat', function() {
   return gulp.src('./src/js/**/*.js')
@@ -33,6 +45,9 @@ gulp.task('sass:watch', function () {
 
 gulp.task('watch', function()
 {
-	gulp.watch('./src/sass/**/*.scss', ['sass']);
-	gulp.watch('./src/js/**/*.js', ['concat']);
+	gulp.watch('./src/sass/**/*.scss', ['sass', 'html']);
+    gulp.watch('./src/js/**/*.js', ['concat', 'html']);
 });
+
+
+gulp.task('default', ['connect', 'watch']);
