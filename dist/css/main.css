@@ -18,6 +18,9 @@ h2 {
 .fc-toolbar {
   margin: 15px 0 !important; }
 
+.fc-time-grid-container {
+  height: 100% !important; }
+
 button {
   border-radius: 0 !important;
   background-image: none !important;
@@ -45,8 +48,9 @@ button {
   padding: 1em !important;
   height: auto !important; }
 
+.fc-divider,
 .fc-minor {
-  display: none; }
+  display: none !important; }
 
 .fc-basic-view .fc-day-number,
 .fc-basic-view .fc-week-number {
