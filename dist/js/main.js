@@ -58,14 +58,16 @@ class CalendarManager
 	addEvent()
 	{
 		console.log("dede");
-		// $('#calendar').fullCalendar('addEventSource',
-		// 	[
-		// 		{
-		//             title  : 'event1',
-		//             start  : '2017-05-05'
-		//         }
-		// 	]
-		// );
+		var moment = $('#calendar').fullCalendar('getDate');
+		console.log(moment);
+		$('#calendar').fullCalendar('addEventSource',
+			[
+				{
+		            title  : 'event1',
+		            start  : moment._d
+		        }
+			]
+		);
 	}
 
 	onDayClick(e)
