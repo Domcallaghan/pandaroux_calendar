@@ -7,7 +7,30 @@ class CalendarManager
 
 	init()
 	{
-		$('#calendar').fullCalendar({});
+		$('#calendar').fullCalendar({
+			customButtons: {
+				addEventButton: {
+					text: 'Add event',
+					click: this.addEvent
+				}
+			},
+			dayClick: this.onDayClick,
+			header: {
+				left: 'prev,next, today, addEventButton',
+		        center: 'title',
+		        right: 'month,agendaWeek,agendaDay'
+			}
+		});
+	}
+
+	addEvent()
+	{
+		console.log("dede");
+	}
+
+	onDayClick(e)
+	{
+		console.log('dayclick', e);
 	}
 }
 
