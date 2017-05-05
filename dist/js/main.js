@@ -39,7 +39,7 @@ class CalendarManager
 					maxTime: "22:00:00",
 					columnFormat: 'dddd',
 					slotDuration: '1:00',
-					slotLabelFormat: 'h:mm',
+					slotLabelFormat: 'H:mm',
 					allDaySlot: false
 				},
 				month: {
