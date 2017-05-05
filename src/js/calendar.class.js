@@ -2,9 +2,11 @@ class CalendarManager
 {
 	constructor()
 	{
+		this._eventsSource = [];
 		console.log('New calendar manager');
 	}
-
+	set eventsSource(eventsSource){this._eventsSource = eventsSource;}
+	get eventsSource(){return this._eventsSource;}
 	init()
 	{
 		$('#calendar').fullCalendar({
@@ -26,10 +28,26 @@ class CalendarManager
 	addEvent()
 	{
 		console.log("dede");
+		$('#calendar').fullCalendar('addEventSource',
+			[
+				{
+		            title  : 'event1',
+		            start  : '2017-05-05'
+		        }
+			]
+		);
 	}
 
 	onDayClick(e)
 	{
-		console.log('dayclick', e);
+		console.log('dayclick', e._d);
+		// $('#calendar').fullCalendar('addEventSource',
+		// 	[
+		// 		{
+		// 			title  : 'event1',
+		// 			start  : e._d
+		// 		}
+		// 	]
+		// );
 	}
 }
