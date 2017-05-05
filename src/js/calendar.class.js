@@ -41,6 +41,7 @@ class CalendarManager
 	onDayClick(e)
 	{
 		console.log('dayclick', e._d);
+		
 		// $('#calendar').fullCalendar('addEventSource',
 		// 	[
 		// 		{

@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fullcalendar": "^3.4.0"
+    "fullcalendar": "^3.4.0",
+    "uikit": "^3.0.0-beta.22"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
