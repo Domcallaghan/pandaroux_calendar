@@ -2,6 +2,18 @@ body {
   font-family: "Montserrat";
 }
 
+::-webkit-scrollbar {
+  width: 17px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
 h2 {
   font-weight   : bold;
   text-transform: capitalize;
