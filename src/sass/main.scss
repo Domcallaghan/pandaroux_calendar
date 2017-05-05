@@ -36,6 +36,10 @@ button {
   padding: .5em .7em !important;
 }
 
+.fc .fc-axis {
+  padding: 1em;
+}
+
 .fc-day-header {
   padding         : 8px 0 !important;
   border-color    : #ddd;
@@ -48,8 +52,8 @@ button {
 .fc-time {
   text-align      : center !important;
   background-color: #f7f7f7;
-  font-size       : 1.1em;
-  padding         : .6em .27em !important;
+  padding         : 1em !important;
+  height          : auto !important;
 }
 
 .fc-minor {
