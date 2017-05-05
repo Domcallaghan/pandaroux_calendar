@@ -27,7 +27,8 @@ class CalendarManager
 				agenda: {
 					minTime: "06:00:00",
 					maxTime: "22:00:00",
-					columnFormat: 'dddd'
+					columnFormat: 'dddd',
+					slotDuration: '1:00'
 				},
 				month: {
 					columnFormat: 'dddd'
