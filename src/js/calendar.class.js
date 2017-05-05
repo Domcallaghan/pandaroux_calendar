@@ -20,13 +20,17 @@ class CalendarManager
 			header: {
 				left: 'prev,next, today, addEventButton',
 		        center: 'title',
-		        right: 'month,agendaWeek,agendaDay'
+		        right: 'month,agendaWeek,agendaDay',
 			},
 
 			views: {
 				agenda: {
 					minTime: "06:00:00",
-					maxTime: "22:00:00"
+					maxTime: "22:00:00",
+					columnFormat: 'dddd'
+				},
+				month: {
+					columnFormat: 'dddd'
 				},
 				agendaCustomDay: {
 					type: 'agenda',
