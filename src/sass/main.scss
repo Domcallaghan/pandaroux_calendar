@@ -31,13 +31,25 @@ button {
   height          : auto !important;
 }
 
+.fc-next-button,
+.fc-prev-button {
+  padding: .5em .7em !important;
+}
+
 .fc-day-header {
   padding         : 8px 0 !important;
   border-color    : #ddd;
-  background-color: #f5f5f5;
+  background-color: #f7f7f7;
   text-transform  : capitalize;
   font-weight     : normal;
   font-size       : 1.2rem;
+}
+
+.fc-time {
+  text-align      : center !important;
+  background-color: #f7f7f7;
+  font-size       : 1.1em;
+  padding         : .6em .27em !important;
 }
 
 .fc-basic-view .fc-day-number,
