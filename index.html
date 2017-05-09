@@ -19,7 +19,7 @@
     <script id="modal-template" type="text/html">
     	<!-- INJECT MODAL TEMPLATE HERE -->
         <!-- inject:body:html -->
-        <form>
+        <form id="modal-event-data">
       <fieldset class="uk-fieldset">
 
 	  <!-- GENERAL OPTIONS -->
@@ -41,8 +41,8 @@
 
 	  <label class="uk-form-label" for="task-color">Couleur</label>
           <div id="task-color" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-              <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
-              <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+              <label><input class="uk-radio" type="radio" name="task-color-choice" checked> A</label>
+              <label><input class="uk-radio" type="radio" name="task-color-choice"> B</label>
           </div>
 
 
@@ -82,18 +82,19 @@
 
   <label class="uk-form-label" for="task-datable">Non datée</label>
   <div id="task-datable" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-   <label><input class="uk-checkbox" type="checkbox"> </label>
+   <label><input name="task-datable" class="uk-checkbox" type="checkbox"> </label>
 </div>
 
 <label class="uk-form-label" for="task-instant">Jalon</label>
 <div id="task-instant" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-   <label><input class="uk-checkbox" type="checkbox" checked> </label>
+   <label><input name="task-instant" class="uk-checkbox" type="checkbox" checked> </label>
 </div>
 
 <label class="uk-form-label" for="task-superposable">Superposable</label>
 <div id="task-superposable" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-   <label><input class="uk-checkbox" type="checkbox" checked> </label>
+   <label><input name="task-superposable" class="uk-checkbox" type="checkbox" checked> </label>
 </div>
+<button id="modal-event-submit-button" class="uk-button uk-button-default">Submit</button>
 
       </fieldset>
   </form>

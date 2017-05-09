@@ -5,7 +5,6 @@ class CalendarManager
 		console.log('New calendar manager');
 		this.eventManager = new EventManager();
 		this.modalTemp = $('#modal-template').html();
-		this.modalTemp2 = $('#modal-template-2').html();
 	}
 
 	init()
@@ -17,7 +16,7 @@ class CalendarManager
 				addEventButton:
 				{
 					text: 'Ajouter une tâche',
-					click: () => {this.addEvent()} // Beware of arrow and this
+					click: () => {this.launchEventModal()} // Beware of arrow and this
 				}
 			},
 			timezone: 'local',
@@ -49,15 +48,16 @@ class CalendarManager
 		});
 	}
 
-	addEvent()
+	launchEventModal()
 	{
-		// console.log(this.modalTemp);
-		UIkit.modal.dialog(this.modalTemp);
-		// this.eventManager.create();
-		// var moment = $('#calendar').fullCalendar('getDate');
-		// console.log(moment);
-		// this._eventManager.add(moment);
+		var data = UIkit.modal.dialog(this.modalTemp); // check if data empty
+		$('#modal-event-submit-button').on('click', (e) => {
+			e.preventDefault();
+			this.eventManager.create($('#modal-event-data')[0].elements);
+		});
 	}
+
+
 }
 
 class EventManager
@@ -65,13 +65,30 @@ class EventManager
 	constructor()
 	{
 		console.log("new Event manager");
+		this.events = [];
 	}
 
-	create()
+	create(elements)
 	{
-		console.log("moment");
+
+		// console.log("moment");
+		console.log(elements['task-title'].value); //object
+		console.log(elements['task-date-start'].value); //object
+
+		let newEvent = {
+			title: elements['task-title'].value,
+			start: elements['task-date-start'].value
+		};
+
+		this.events.push(newEvent);
+		this.customRefetch();
+		$('#calendar').fullCalendar('addEventSource', this.events);
 	}
 
+	customRefetch() // search an other solution 
+	{
+		$('#calendar').fullCalendar('removeEventSources');
+	}
 	remove()
 	{
 
