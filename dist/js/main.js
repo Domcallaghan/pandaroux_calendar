@@ -158,12 +158,13 @@ class EventManager
 		$('#calendar').fullCalendar('removeEvents', id);
 	}
 
-	update(elements, calEvent) {
-	// regexp decoupe
-	// calEvent.title = elements['task-title'].value;
-	//
-	// $('#calendar').fullCalendar('updateEvent', calEvent);
-}
+	update(elements, calEvent)
+	{
+		// regexp decoupe
+		// calEvent.title = elements['task-title'].value;
+		//
+		// $('#calendar').fullCalendar('updateEvent', calEvent);
+	}
 }
 
 (() => {
