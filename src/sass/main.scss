@@ -29,10 +29,10 @@ h2 {
 }
 
 button {
-  border-radius   : 0 !important;
-  background-image: none !important;
   padding         : .5em 1.2em !important;
   height          : auto !important;
+  border-radius   : 0 !important;
+  background-image: none !important;
 }
 
 .fc-next-button,
@@ -42,6 +42,13 @@ button {
 
 .fc .fc-axis {
   padding: 1em;
+}
+
+.fc-month-view {
+  .fc-week {
+    max-height: 140px;
+    overflow  : hidden;
+  }
 }
 
 .fc-day-header {
@@ -54,10 +61,50 @@ button {
 }
 
 .fc-time {
-  text-align      : center !important;
-  background-color: #f7f7f7;
-  padding         : 1em !important;
   height          : auto !important;
+  background-color: #f7f7f7;
+  text-align      : center !important;
+}
+
+.fc-event {
+  border-radius : 0;
+  min-height    : 30px;
+  text-align    : center;
+  font-size     : .9rem;
+  text-transform: capitalize;
+}
+
+.fc-ltr .fc-time-grid .fc-event-container {
+  margin: 0;
+}
+
+.fc-day-grid-event {
+  margin    : 0;
+  display   : flex;
+  height    : 100%;
+  margin-top: 5px;
+
+  .fc-content {
+    margin: auto;
+  }
+
+  .fc-time {
+    display: none;
+  }
+}
+
+.fc-time-grid-event {
+  margin : 0;
+  display: flex;
+  height : 3.3em;
+
+  .fc-content {
+    margin: auto;
+  }
+
+  .fc-time {
+    display: none;
+  }
 }
 
 .fc-divider,
