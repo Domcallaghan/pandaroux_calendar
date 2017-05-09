@@ -4,6 +4,8 @@ class CalendarManager
 	{
 		console.log('New calendar manager');
 		this.eventManager = new EventManager();
+		this.modalTemp = $('#modal-template').html();
+		this.modalTemp2 = $('#modal-template-2').html();
 	}
 
 	init()
@@ -18,7 +20,6 @@ class CalendarManager
 					click: () => {this.addEvent()} // Beware of arrow and this
 				}
 			},
-			dayClick: (e) => {this.onDayClick(e)},
 			timezone: 'local',
 			header:
 			{
@@ -50,25 +51,12 @@ class CalendarManager
 
 	addEvent()
 	{
+		console.log(this.modalTemp);
+		UIkit.modal.dialog(this.modalTemp);
 		this.eventManager.create();
 		// var moment = $('#calendar').fullCalendar('getDate');
 		// console.log(moment);
 		// this._eventManager.add(moment);
-	}
-
-	onDayClick(e)
-	{
-		console.log('dayclick', e._d);
-		this.eventManager.create(e);
-		// UIkit.modal.dialog('<p>Titre</p><button>Valider</button>');
-		// $('#calendar').fullCalendar('addEventSource',
-		// 	[
-		// 		{
-		// 			title  : 'event1',
-		// 			start  : e._d
-		// 		}
-		// 	]
-		// );
 	}
 }
 
