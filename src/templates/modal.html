@@ -1,79 +1,71 @@
-<form id="modal-event-data">
-      <fieldset class="uk-fieldset">
-
-	  <!-- GENERAL OPTIONS -->
-          <legend class="uk-legend">Titre de la Tâche</legend>
-
-          <div class="uk-margin">
-		  <label class="uk-form-label" for="task-title">Titre</label>
-              <input id="task-title" class="uk-input" type="text" placeholder="Nom de la tâche">
-          </div>
-
-          <div class="uk-margin">
-		  <label class="uk-form-label" for="task-priority">Priorité</label>
-              <select id="task-priority" class="uk-select">
-                  <option>Haute</option>
-			  <option>Moyenne</option>
-                  <option>Basse</option>
-              </select>
-          </div>
-
-	  <label class="uk-form-label" for="task-color">Couleur</label>
-          <div id="task-color" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-              <label><input class="uk-radio" type="radio" name="task-color-choice" checked> A</label>
-              <label><input class="uk-radio" type="radio" name="task-color-choice"> B</label>
-          </div>
-
-
-	  <!-- TIME OPTIONS -->
-	  <div class="uk-margin">
-		  <label class="uk-form-label" for="task-date-start">Du</label>
-		  <input id="task-date-start" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-		  	<input id="task-schedule-start" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
-		<label class="uk-form-label" for="task-date-end">Au</label>
-	  <input id="task-date-end" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-	<input id="task-schedule-end" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
-	  </div>
-
-
-
-	  <div class="uk-margin">
-			<label class="uk-form-label" for="task-recurrence">Récurrence</label>
-			<select id="task-recurrence" class="uk-select">
-			<option>Pas de récurrence</option>
-			<option>Tous les mois</option>
-				<option>Toutes les semaines</option>
-				<option>Tous les jours</option>
-			</select>
-		</div>
-
-	<div class="uk-margin">
-	  <label class="uk-form-label" for="task-frequency">Fréquence de rappel</label>
-	  <select id="task-frequency" class="uk-select">
-		  <option>Pas de rappel</option>
-		  <option>5 minutes</option>
-		  <option>10 minutes</option>
-		  <option>15 minutes</option>
-		  <option>20 minutes</option>
-		  <option>30 minutes</option>
-	  </select>
-  </div>
-
-  <label class="uk-form-label" for="task-datable">Non datée</label>
-  <div id="task-datable" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-   <label><input name="task-datable" class="uk-checkbox" type="checkbox"> </label>
-</div>
-
-<label class="uk-form-label" for="task-instant">Jalon</label>
-<div id="task-instant" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-   <label><input name="task-instant" class="uk-checkbox" type="checkbox" checked> </label>
-</div>
-
-<label class="uk-form-label" for="task-superposable">Superposable</label>
-<div id="task-superposable" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-   <label><input name="task-superposable" class="uk-checkbox" type="checkbox" checked> </label>
-</div>
-<button id="modal-event-submit-button" class="uk-button uk-button-default">Submit</button>
-
-      </fieldset>
-  </form>
+<form class="uk-padding-small">
+  <button class="uk-modal-close-default closeButton" type="button" uk-close></button>
+  <fieldset class="uk-fieldset">
+    <!-- GENERAL OPTIONS -->
+    <legend class="uk-legend">Titre de la Tâche</legend>
+    <div class="uk-margin uk-margin-remove-top">
+      <label class="uk-form-label" for="task-title">Titre</label>
+      <input id="task-title" class="uk-input" type="text" placeholder="Nom de la tâche">
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="task-priority">Priorité</label>
+      <select id="task-priority" class="uk-select">
+        <option>Haute</option>
+        <option>Moyenne</option>
+        <option>Basse</option>
+      </select>
+    </div>
+    <div id="task-color" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
+      <label class="uk-form-label" for="task-color">Couleur</label>
+      <label><input class="uk-radio" type="radio" name="radio2" checked>
+        A</label>
+      <label><input class="uk-radio" type="radio" name="radio2">
+        B</label>
+    </div>
+    <!-- TIME OPTIONS -->
+    <div class="uk-margin">
+      <label class="uk-form-label uk-margin-small-right" for="task-date-start">Du</label>
+      <input id="task-date-start" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+      <input id="task-schedule-start" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
+      <label class="uk-form-label uk-margin-small-left uk-margin-small-right" for="task-date-end">Au</label>
+      <input id="task-date-end" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+      <input id="task-schedule-end" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="task-recurrence">Récurrence</label>
+      <select id="task-recurrence" class="uk-select">
+        <option>Pas de récurrence</option>
+        <option>Tous les mois</option>
+        <option>Toutes les semaines</option>
+        <option>Tous les jours</option>
+      </select>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="task-frequency">Fréquence de rappel</label>
+      <select id="task-frequency" class="uk-select">
+        <option>Pas de rappel</option>
+        <option>5 minutes</option>
+        <option>10 minutes</option>
+        <option>15 minutes</option>
+        <option>20 minutes</option>
+        <option>30 minutes</option>
+      </select>
+    </div>
+    <div id="task-datable" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
+      <label class="uk-form-label" for="task-datable">Non datée</label>
+      <label><input class="uk-checkbox" type="checkbox">
+      </label>
+    </div>
+    <div id="task-instant" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
+      <label class="uk-form-label" for="task-instant">Jalon</label>
+      <label><input class="uk-checkbox" type="checkbox" checked>
+      </label>
+    </div>
+    <div id="task-superposable" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
+      <label class="uk-form-label" for="task-superposable">Superposable</label>
+      <label><input class="uk-checkbox" type="checkbox" checked>
+      </label>
+    </div>
+    <button id="modal-event-submit-button" class="uk-button uk-button-default">Submit</button>
+  </fieldset>
+</form>
