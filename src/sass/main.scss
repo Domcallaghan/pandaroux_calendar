@@ -44,6 +44,13 @@ button {
   padding: 1em;
 }
 
+.fc-month-view {
+  .fc-week {
+    max-height: 140px;
+    overflow  : hidden;
+  }
+}
+
 .fc-day-header {
   padding         : 8px 0 !important;
   border-color    : #ddd;
@@ -72,9 +79,10 @@ button {
 }
 
 .fc-day-grid-event {
-  margin : 0;
-  display: flex;
-  height : 100%;
+  margin    : 0;
+  display   : flex;
+  height    : 100%;
+  margin-top: 5px;
 
   .fc-content {
     margin: auto;
@@ -88,7 +96,7 @@ button {
 .fc-time-grid-event {
   margin : 0;
   display: flex;
-  height : 1.5em;
+  height : 3.3em;
 
   .fc-content {
     margin: auto;
