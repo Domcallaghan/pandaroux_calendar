@@ -73,7 +73,7 @@ class EventManager
 		var end_date = end_rslt[1];
 		var end_hour = end_rslt[2];
 
-		
+
 		// regexp decoupe
 		// calEvent.title = elements['task-title'].value;
 		//

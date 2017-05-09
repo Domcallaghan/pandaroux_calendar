@@ -8,7 +8,7 @@
     <div class="uk-modal-body">
       <div class="uk-margin uk-margin-remove-top">
         <label class="uk-form-label" for="task-title">Titre</label>
-        <input id="task-title" class="uk-input" type="text" placeholder="Nom de la tâche">
+        <input id="task-title" class="uk-input" type="text" placeholder="Nom de la tâche" required>
       </div>
       <div class="uk-margin">
         <label class="uk-form-label" for="task-priority">Priorité</label>
@@ -28,11 +28,11 @@
       <!-- TIME OPTIONS -->
       <div class="uk-margin">
         <label class="uk-form-label" for="task-date-start">Du&nbsp;</label>
-        <input id="task-date-start" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-        <input id="task-schedule-start" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
+        <input id="task-date-start" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}" required>
+        <input id="task-schedule-start" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}" required>
         <label class="uk-form-label" for="task-date-end">&nbsp;Au&nbsp;</label>
-        <input id="task-date-end" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-        <input id="task-schedule-end" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
+        <input id="task-date-end" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}" required>
+        <input id="task-schedule-end" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}" required>
       </div>
       <div class="uk-margin">
         <label class="uk-form-label" for="task-recurrence">Récurrence</label>
