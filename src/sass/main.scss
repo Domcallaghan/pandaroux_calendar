@@ -29,32 +29,6 @@ input[type=radio] {
   margin: 0;
 }
 
-.uk-modal {
-  background: rgba(0,0,0,.8);
-}
-
-.uk-modal-footer,
-.uk-modal-header {
-  padding: 15px 20px;
-}
-
-.uk-modal-body {
-  padding: 20px;
-}
-
-.closeButton {
-  right: 5px;
-  top  : 15px;
-}
-
-.fc-toolbar {
-  margin: 15px 0 !important;
-}
-
-.fc-time-grid-container {
-  height: 100% !important;
-}
-
 button {
   padding         : .5em 1.2em !important;
   height          : auto !important;
@@ -62,13 +36,61 @@ button {
   background-image: none !important;
 }
 
-.fc-next-button,
-.fc-prev-button {
-  padding: .5em .7em !important;
+.uk-modal {
+  background: rgba(0,0,0,.8);
+
+  .uk-modal-footer,
+  .uk-modal-header {
+    padding: 15px 20px;
+  }
+
+  .uk-modal-body {
+    padding: 20px;
+  }
+
+  .closeButton {
+    right: 5px;
+    top  : 15px;
+  }
+}
+
+.uk-notification-message {
+  background-color: #eee;
+}
+
+.fc-toolbar {
+  margin: 15px 0 !important;
+
+  .fc-next-button,
+  .fc-prev-button {
+    padding: .5em .7em !important;
+  }
+}
+
+.fc-time-grid-container {
+  height: 100% !important;
+
+  .fc-time-grid-event {
+    border: none;
+  }
 }
 
 .fc .fc-axis {
-  padding: 1em;
+  padding: .95em;
+}
+
+.fc-agenda-view {
+  .fc-widget-content .fc-day-grid {
+    display: none;
+
+    .fc-content-skeleton {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  .fc-axis {
+    height: 25px;
+  }
 }
 
 .fc-month-view {
@@ -79,7 +101,7 @@ button {
 }
 
 .fc-day-header {
-  padding         : 8px 0 !important;
+  padding         : 12px 0 !important;
   border-color    : #ddd;
   background-color: #f7f7f7;
   text-transform  : capitalize;
