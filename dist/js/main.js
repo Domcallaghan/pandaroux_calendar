@@ -56,22 +56,25 @@ class CalendarManager
 
 	launchEventCreateModal()
 	{
-		UIkit.modal.dialog(this.modalTemp); // check if data empty
+		var modalObject = UIkit.modal.dialog(this.modalTemp); // check if data empty
+		console.log(modalObject);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.create($('#modal-event-data')[0].elements);
+			modalObject.hide();
 		});
 	}
 
 	launchEventUpdateModal(calEvent)
 	{
 		console.log("update the event");
-		UIkit.modal.dialog(this.modalTemp);
+		var modalObject = UIkit.modal.dialog(this.modalTemp);
 		$('#task-title').val(calEvent.title);
 		$('#task-date-start').val(calEvent.start._i);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
+			modalObject.hide();
 		});
 	}
 
