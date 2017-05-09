@@ -60,8 +60,8 @@ gulp.task('sass:watch', function () {
 
 gulp.task('watch', function()
 {
-	gulp.watch('./src/sass/**/*.scss', ['sass', 'html']);
-    gulp.watch('./src/js/**/*.js', ['concat', 'html']);
+	gulp.watch('./src/sass/**/*.scss', ['index', 'sass', 'html']);
+    gulp.watch('./src/js/**/*.js', ['index','concat', 'html']);
     gulp.watch('./index.html', ['index' ,'html']);
 });
 
