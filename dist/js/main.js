@@ -88,20 +88,44 @@ class EventManager
 
 	create(elements)
 	{
+		if(this.verifyContent(elements))
+		{
+			let newEvent =
+			{
+				title: elements['task-title'].value,
+				start: elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value,
+				end: elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value,
+				editable: true
+			}
+			this.events.push(newEvent);
+			this.customRefetch();
+			$('#calendar').fullCalendar('addEventSource', this.events);
+		}
+		else
+		{
+			UIkit.notification({
+			    message: 'Error',
+			    status: 'primary',
+			    pos: 'top-right',
+			    timeout: 1000
+			});
+		}
+	}
 
-		// console.log("moment");
-		console.log(elements['task-title'].value); //object
-		console.log(elements['task-date-start'].value); //object
-		// console.log(elements['task-schedule-start'].value) // check if fill or not
-		let newEvent = {
-			title: elements['task-title'].value,
-			start: elements['task-date-start'].value,
-			editable: true
-		};
-
-		this.events.push(newEvent);
-		this.customRefetch();
-		$('#calendar').fullCalendar('addEventSource', this.events);
+	verifyContent(elements)
+	{
+		if(!elements['task-title'].value == "" &&
+		!elements['task-date-start'].value == "" &&
+		!elements['task-date-end'].value == "" &&
+		!elements['task-schedule-start'].value == "" &&
+		!elements['task-schedule-end'].value == "")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	// search an other solution for this function
