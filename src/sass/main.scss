@@ -20,6 +20,24 @@ h2 {
   font-family   : "Montserrat";
 }
 
+label {
+  font-weight: normal;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  margin: 0;
+}
+
+.uk-modal {
+  background: rgba(0,0,0,.8);
+}
+
+.closeButton {
+  right: 0;
+  top  : 10px;
+}
+
 .fc-toolbar {
   margin: 15px 0 !important;
 }
