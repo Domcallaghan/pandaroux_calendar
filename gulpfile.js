@@ -62,7 +62,7 @@ gulp.task('watch', function()
 {
 	gulp.watch('./src/sass/**/*.scss', ['index', 'sass', 'html']);
     gulp.watch('./src/js/**/*.js', ['index','concat', 'html']);
-    gulp.watch('./index.html', ['index' ,'html']);
+    gulp.watch('./src/templates/*.html', ['index' ,'html']);
 });
 
 

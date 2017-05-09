@@ -51,9 +51,9 @@ class CalendarManager
 
 	addEvent()
 	{
-		console.log(this.modalTemp);
+		// console.log(this.modalTemp);
 		UIkit.modal.dialog(this.modalTemp);
-		this.eventManager.create();
+		// this.eventManager.create();
 		// var moment = $('#calendar').fullCalendar('getDate');
 		// console.log(moment);
 		// this._eventManager.add(moment);
