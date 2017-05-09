@@ -2,17 +2,10 @@ class CalendarManager
 {
 	constructor()
 	{
-		this._eventsSource = [];
 		console.log('New calendar manager');
+		this.eventManager = new EventManager();
 	}
-	set eventsSource(eventsSource)
-	{
-		this._eventsSource = eventsSource;
-	}
-	get eventsSource()
-	{
-		return this._eventsSource;
-	}
+
 	init()
 	{
 		$('#calendar').fullCalendar(
@@ -22,10 +15,10 @@ class CalendarManager
 				addEventButton:
 				{
 					text: 'Ajouter une tâche',
-					click: this.addEvent
+					click: () => {this.addEvent()} // Beware of arrow and this
 				}
 			},
-			dayClick: this.onDayClick,
+			dayClick: (e) => {this.onDayClick(e)},
 			timezone: 'local',
 			header:
 			{
@@ -57,22 +50,16 @@ class CalendarManager
 
 	addEvent()
 	{
-		console.log("dede");
-		var moment = $('#calendar').fullCalendar('getDate');
-		console.log(moment);
-		$('#calendar').fullCalendar('addEventSource',
-			[
-				{
-		            title  : 'event1',
-		            start  : moment._d
-		        }
-			]
-		);
+		this.eventManager.create();
+		// var moment = $('#calendar').fullCalendar('getDate');
+		// console.log(moment);
+		// this._eventManager.add(moment);
 	}
 
 	onDayClick(e)
 	{
 		console.log('dayclick', e._d);
+		this.eventManager.create(e);
 		// UIkit.modal.dialog('<p>Titre</p><button>Valider</button>');
 		// $('#calendar').fullCalendar('addEventSource',
 		// 	[
