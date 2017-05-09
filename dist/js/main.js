@@ -20,9 +20,6 @@ class CalendarManager
 				}
 			},
 			eventClick: (calEvent, jsEvent, view) => {
-				console.log(calEvent);
-				console.log(jsEvent);
-				console.log(view);
 				this.launchEventUpdateModal(calEvent);
 			},
 			timezone: 'local',
@@ -60,8 +57,10 @@ class CalendarManager
 		console.log(modalObject);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
-			this.eventManager.create($('#modal-event-data')[0].elements);
-			modalObject.hide();
+			if(this.eventManager.create($('#modal-event-data')[0].elements))
+			{
+				modalObject.hide();
+			}
 		});
 	}
 
@@ -74,7 +73,7 @@ class CalendarManager
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
-			modalObject.hide();
+			// modalObject.hide();
 		});
 	}
 
@@ -103,6 +102,7 @@ class EventManager
 			this.events.push(newEvent);
 			this.customRefetch();
 			$('#calendar').fullCalendar('addEventSource', this.events);
+			return true;
 		}
 		else
 		{
@@ -112,6 +112,7 @@ class EventManager
 			    pos: 'top-right',
 			    timeout: 1000
 			});
+			return false;
 		}
 	}
 
@@ -144,10 +145,21 @@ class EventManager
 
 	update(elements, calEvent)
 	{
-		console.log(calEvent.start);
-		calEvent.title = elements['task-title'].value;
+		var start_data = calEvent.start._i;
+		var start_rslt = start_data.match(/^(.{10})T(.{5})$/);
+		var start_date = start_rslt[1];
+		var start_hour = start_rslt[2];
 
-		$('#calendar').fullCalendar('updateEvent', calEvent);
+		var end_data = calEvent.end._i;
+		var end_rslt = end_data.match(/^(.{10})T(.{5})$/);
+		var end_date = end_rslt[1];
+		var end_hour = end_rslt[2];
+
+		
+		// regexp decoupe
+		// calEvent.title = elements['task-title'].value;
+		//
+		// $('#calendar').fullCalendar('updateEvent', calEvent);
 	}
 }
 

@@ -20,9 +20,6 @@ class CalendarManager
 				}
 			},
 			eventClick: (calEvent, jsEvent, view) => {
-				console.log(calEvent);
-				console.log(jsEvent);
-				console.log(view);
 				this.launchEventUpdateModal(calEvent);
 			},
 			timezone: 'local',
@@ -60,8 +57,10 @@ class CalendarManager
 		console.log(modalObject);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
-			this.eventManager.create($('#modal-event-data')[0].elements);
-			modalObject.hide();
+			if(this.eventManager.create($('#modal-event-data')[0].elements))
+			{
+				modalObject.hide();
+			}
 		});
 	}
 
@@ -74,7 +73,7 @@ class CalendarManager
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
-			modalObject.hide();
+			// modalObject.hide();
 		});
 	}
 
