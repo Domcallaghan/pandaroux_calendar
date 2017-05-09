@@ -12,10 +12,11 @@ class EventManager
 		// console.log("moment");
 		console.log(elements['task-title'].value); //object
 		console.log(elements['task-date-start'].value); //object
-
+		// console.log(elements['task-schedule-start'].value) // check if fill or not
 		let newEvent = {
 			title: elements['task-title'].value,
-			start: elements['task-date-start'].value
+			start: elements['task-date-start'].value,
+			editable: true
 		};
 
 		this.events.push(newEvent);
@@ -28,15 +29,16 @@ class EventManager
 	{
 		$('#calendar').fullCalendar('removeEventSources');
 	}
-	remove()
-	{
 
+	remove(id)
+	{
+		$('#calendar').fullCalendar('removeEvents', id);
 	}
 
 	update(elements, calEvent)
 	{
+		console.log(calEvent.start);
 		calEvent.title = elements['task-title'].value;
-		calEvent.start = elements['task-date-start'].value;
 
 		$('#calendar').fullCalendar('updateEvent', calEvent);
 	}

@@ -40,7 +40,7 @@ class CalendarManager
 					columnFormat: 'dddd',
 					slotDuration: '1:00',
 					slotLabelFormat: 'H:mm',
-					allDaySlot: false
+					allDaySlot: true
 				},
 				month: {
 					columnFormat: 'dddd'
@@ -68,6 +68,7 @@ class CalendarManager
 		console.log("update the event");
 		UIkit.modal.dialog(this.modalTemp);
 		$('#task-title').val(calEvent.title);
+		$('#task-date-start').val(calEvent.start._i);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
