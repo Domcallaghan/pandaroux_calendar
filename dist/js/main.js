@@ -93,8 +93,7 @@ class EventManager
 	{
 		if(this.verifyContent(elements))
 		{
-			let newEvent =
-			{
+			let newEvent = {
 				title: elements['task-title'].value,
 				start: elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value,
 				end: elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value,
@@ -106,11 +105,12 @@ class EventManager
 		}
 		else
 		{
-			UIkit.notification({
-			    message: 'Error',
-			    status: 'primary',
-			    pos: 'top-right',
-			    timeout: 1000
+			UIkit.notification(
+			{
+				message: 'Erreur',
+				status: 'danger',
+				pos: 'top-center',
+				timeout: 1000
 			});
 		}
 	}
@@ -118,10 +118,10 @@ class EventManager
 	verifyContent(elements)
 	{
 		if(!elements['task-title'].value == "" &&
-		!elements['task-date-start'].value == "" &&
-		!elements['task-date-end'].value == "" &&
-		!elements['task-schedule-start'].value == "" &&
-		!elements['task-schedule-end'].value == "")
+			!elements['task-date-start'].value == "" &&
+			!elements['task-date-end'].value == "" &&
+			!elements['task-schedule-start'].value == "" &&
+			!elements['task-schedule-end'].value == "")
 		{
 			return true;
 		}

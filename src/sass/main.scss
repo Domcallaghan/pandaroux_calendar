@@ -65,6 +65,10 @@ button {
 
 .fc-time-grid-container {
   height: 100% !important;
+
+  .fc-time-grid-event {
+    border: none;
+  }
 }
 
 .fc .fc-axis {
@@ -73,6 +77,8 @@ button {
 
 .fc-agenda-view {
   .fc-widget-content .fc-day-grid {
+    display: none;
+
     .fc-content-skeleton {
       border-bottom: 1px solid #ddd;
     }

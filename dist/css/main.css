@@ -47,12 +47,16 @@ button {
 
 .fc-time-grid-container {
   height: 100% !important; }
+  .fc-time-grid-container .fc-time-grid-event {
+    border: none; }
 
 .fc .fc-axis {
   padding: .95em; }
 
-.fc-agenda-view .fc-widget-content .fc-day-grid .fc-content-skeleton {
-  border-bottom: 1px solid #ddd; }
+.fc-agenda-view .fc-widget-content .fc-day-grid {
+  display: none; }
+  .fc-agenda-view .fc-widget-content .fc-day-grid .fc-content-skeleton {
+    border-bottom: 1px solid #ddd; }
 
 .fc-agenda-view .fc-axis {
   height: 25px; }
