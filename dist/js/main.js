@@ -16,8 +16,14 @@ class CalendarManager
 				addEventButton:
 				{
 					text: 'Ajouter une tâche',
-					click: () => {this.launchEventModal()} // Beware of arrow and this
+					click: () => {this.launchEventCreateModal()} // Beware of arrow and this
 				}
+			},
+			eventClick: (calEvent, jsEvent, view) => {
+				console.log(calEvent);
+				console.log(jsEvent);
+				console.log(view);
+				this.launchEventUpdateModal(calEvent);
 			},
 			timezone: 'local',
 			header:
@@ -48,12 +54,23 @@ class CalendarManager
 		});
 	}
 
-	launchEventModal()
+	launchEventCreateModal()
 	{
-		var data = UIkit.modal.dialog(this.modalTemp); // check if data empty
+		UIkit.modal.dialog(this.modalTemp); // check if data empty
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.create($('#modal-event-data')[0].elements);
+		});
+	}
+
+	launchEventUpdateModal(calEvent)
+	{
+		console.log("update the event");
+		UIkit.modal.dialog(this.modalTemp);
+		$('#task-title').val(calEvent.title);
+		$('#modal-event-submit-button').on('click', (e) => {
+			e.preventDefault();
+			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
 		});
 	}
 
@@ -85,7 +102,8 @@ class EventManager
 		$('#calendar').fullCalendar('addEventSource', this.events);
 	}
 
-	customRefetch() // search an other solution 
+	// search an other solution for this function
+	customRefetch()
 	{
 		$('#calendar').fullCalendar('removeEventSources');
 	}
@@ -94,9 +112,12 @@ class EventManager
 
 	}
 
-	update()
+	update(elements, calEvent)
 	{
+		calEvent.title = elements['task-title'].value;
+		calEvent.start = elements['task-date-start'].value;
 
+		$('#calendar').fullCalendar('updateEvent', calEvent);
 	}
 }
 

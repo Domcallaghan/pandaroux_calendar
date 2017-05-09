@@ -23,7 +23,8 @@ class EventManager
 		$('#calendar').fullCalendar('addEventSource', this.events);
 	}
 
-	customRefetch() // search an other solution 
+	// search an other solution for this function
+	customRefetch()
 	{
 		$('#calendar').fullCalendar('removeEventSources');
 	}
@@ -32,8 +33,11 @@ class EventManager
 
 	}
 
-	update()
+	update(elements, calEvent)
 	{
+		calEvent.title = elements['task-title'].value;
+		calEvent.start = elements['task-date-start'].value;
 
+		$('#calendar').fullCalendar('updateEvent', calEvent);
 	}
 }
