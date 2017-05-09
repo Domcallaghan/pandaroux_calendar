@@ -39,6 +39,9 @@ button {
     right: 5px;
     top: 15px; }
 
+.uk-notification-message {
+  background-color: #eee; }
+
 .fc-toolbar {
   margin: 15px 0 !important; }
   .fc-toolbar .fc-next-button,
