@@ -68,7 +68,19 @@ button {
 }
 
 .fc .fc-axis {
-  padding: 1em;
+  padding: .95em;
+}
+
+.fc-agenda-view {
+  .fc-widget-content .fc-day-grid {
+    .fc-content-skeleton {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  .fc-axis {
+    height: 25px;
+  }
 }
 
 .fc-month-view {
@@ -79,7 +91,7 @@ button {
 }
 
 .fc-day-header {
-  padding         : 8px 0 !important;
+  padding         : 12px 0 !important;
   border-color    : #ddd;
   background-color: #f7f7f7;
   text-transform  : capitalize;
