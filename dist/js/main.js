@@ -56,22 +56,25 @@ class CalendarManager
 
 	launchEventCreateModal()
 	{
-		UIkit.modal.dialog(this.modalTemp); // check if data empty
+		var modalObject = UIkit.modal.dialog(this.modalTemp); // check if data empty
+		console.log(modalObject);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.create($('#modal-event-data')[0].elements);
+			modalObject.hide();
 		});
 	}
 
 	launchEventUpdateModal(calEvent)
 	{
 		console.log("update the event");
-		UIkit.modal.dialog(this.modalTemp);
+		var modalObject = UIkit.modal.dialog(this.modalTemp);
 		$('#task-title').val(calEvent.title);
 		$('#task-date-start').val(calEvent.start._i);
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
+			modalObject.hide();
 		});
 	}
 
@@ -88,20 +91,44 @@ class EventManager
 
 	create(elements)
 	{
+		if(this.verifyContent(elements))
+		{
+			let newEvent =
+			{
+				title: elements['task-title'].value,
+				start: elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value,
+				end: elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value,
+				editable: true
+			}
+			this.events.push(newEvent);
+			this.customRefetch();
+			$('#calendar').fullCalendar('addEventSource', this.events);
+		}
+		else
+		{
+			UIkit.notification({
+			    message: 'Error',
+			    status: 'primary',
+			    pos: 'top-right',
+			    timeout: 1000
+			});
+		}
+	}
 
-		// console.log("moment");
-		console.log(elements['task-title'].value); //object
-		console.log(elements['task-date-start'].value); //object
-		// console.log(elements['task-schedule-start'].value) // check if fill or not
-		let newEvent = {
-			title: elements['task-title'].value,
-			start: elements['task-date-start'].value,
-			editable: true
-		};
-
-		this.events.push(newEvent);
-		this.customRefetch();
-		$('#calendar').fullCalendar('addEventSource', this.events);
+	verifyContent(elements)
+	{
+		if(!elements['task-title'].value == "" &&
+		!elements['task-date-start'].value == "" &&
+		!elements['task-date-end'].value == "" &&
+		!elements['task-schedule-start'].value == "" &&
+		!elements['task-schedule-end'].value == "")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	// search an other solution for this function
