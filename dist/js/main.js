@@ -66,21 +66,20 @@ class CalendarManager
 
 	launchEventUpdateModal(calEvent)
 	{
-		console.log("update the event");
 		var modalObject = UIkit.modal.dialog(this.modalTemp);
 		$('#task-title').val(calEvent.title);
-		
-		var start_data = calEvent.start._i;
-		var start_rslt = start_data.match(/^(.{10})T(.{5})$/);
+
+		var start_rslt = Tools.getDateAndHour(calEvent.start._i);
 		var start_date = start_rslt[1];
 		var start_hour = start_rslt[2];
+
 		$('#task-date-start').val(start_date);
 		$('#task-schedule-start').val(start_hour);
 
-		var end_data = calEvent.end._i;
-		var end_rslt = end_data.match(/^(.{10})T(.{5})$/);
+		var end_rslt = Tools.getDateAndHour(calEvent.end._i);
 		var end_date = end_rslt[1];
 		var end_hour = end_rslt[2];
+
 		$('#task-date-end').val(end_date);
 		$('#task-schedule-end').val(end_hour);
 
@@ -88,7 +87,7 @@ class CalendarManager
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
-			// modalObject.hide();
+			modalObject.hide();
 		});
 	}
 
@@ -173,3 +172,11 @@ class EventManager
 	let calman = new CalendarManager();
 	calman.init();
 })();
+
+class Tools
+{
+	static getDateAndHour(data)
+	{
+		return data.match(/^(.{10})T(.{5})$/);
+	}
+}
