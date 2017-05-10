@@ -1,5 +1,6 @@
 body {
   font-family: "Montserrat" !important;
+  min-width  : 870px;
 }
 
 ::-webkit-scrollbar {
@@ -39,6 +40,10 @@ input:required:active,
 input:required:focus {
   border: 1px solid #eee;
   color : #666;
+}
+
+#calendar {
+  margin-bottom: 30px;
 }
 
 .color-square {

@@ -27,7 +27,7 @@ class EventManager
 			$("input:required").addClass("uk-form-danger");
 
 			// We remove input danger class on focus
-			$("input:required").focus(function()
+			$("input:required").change(function()
 			{
 				$(this).removeClass("uk-form-danger");
 			});
