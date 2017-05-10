@@ -23,9 +23,17 @@ class EventManager
 		}
 		else
 		{
+			// We highlight required input fields
+			$("input:required").addClass("uk-form-danger");
+
+			// We remove input danger class on focus
+			$("input:required").focus(function()
+			{
+				$(this).removeClass("uk-form-danger");
+			});
 			UIkit.notification(
 			{
-				message: 'Erreur',
+				message: 'Remplissez les champs requis',
 				status: 'danger',
 				pos: 'top-center',
 				timeout: 1000
