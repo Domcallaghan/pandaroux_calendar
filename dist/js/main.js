@@ -16,10 +16,14 @@ class CalendarManager
 				addEventButton:
 				{
 					text: 'Ajouter une tâche',
-					click: () => {this.launchEventCreateModal()} // Beware of arrow and this
+					click: () =>
+					{
+						this.launchEventCreateModal()
+					} // Beware of arrow and this
 				}
 			},
-			eventClick: (calEvent, jsEvent, view) => {
+			eventClick: (calEvent, jsEvent, view) =>
+			{
 				this.launchEventUpdateModal(calEvent);
 			},
 			dayClick: () =>
@@ -30,12 +34,14 @@ class CalendarManager
 			header:
 			{
 				left: 'prev,next, today, addEventButton',
-		        center: 'title',
-		        right: 'month,agendaWeek,agendaDay',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay',
 			},
 
-			views: {
-				agenda: {
+			views:
+			{
+				agenda:
+				{
 					minTime: "06:00:00",
 					maxTime: "22:00:00",
 					columnFormat: 'dddd',
@@ -43,10 +49,12 @@ class CalendarManager
 					slotLabelFormat: 'H:mm',
 					allDaySlot: true
 				},
-				month: {
+				month:
+				{
 					columnFormat: 'dddd'
 				},
-				agendaCustomDay: {
+				agendaCustomDay:
+				{
 
 					type: 'agenda',
 					buttonText: 'Jour'
@@ -62,7 +70,8 @@ class CalendarManager
 	{
 		var modalObject = UIkit.modal.dialog(this.modalTemp); // check if data empty
 		console.log(modalObject);
-		$('#modal-event-submit-button').on('click', (e) => {
+		$('#modal-event-submit-button').on('click', (e) =>
+		{
 			e.preventDefault();
 			if(this.eventManager.create($('#modal-event-data')[0].elements))
 			{
@@ -93,14 +102,13 @@ class CalendarManager
 		$('#task-schedule-end').val(end_hour);
 
 
-		$('#modal-event-submit-button').on('click', (e) => {
+		$('#modal-event-submit-button').on('click', (e) =>
+		{
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent); // calEvent is actual Event
 			modalObject.hide();
 		});
 	}
-
-
 }
 
 class EventManager
@@ -128,9 +136,17 @@ class EventManager
 		}
 		else
 		{
+			// We highlight required input fields
+			$("input:required").addClass("uk-form-danger");
+
+			// We remove input danger class on focus
+			$("input:required").change(function()
+			{
+				$(this).removeClass("uk-form-danger");
+			});
 			UIkit.notification(
 			{
-				message: 'Erreur',
+				message: 'Remplissez les champs requis',
 				status: 'danger',
 				pos: 'top-center',
 				timeout: 1000
@@ -169,23 +185,11 @@ class EventManager
 
 	update(elements, calEvent)
 	{
-		if(this.verifyContent(elements))
-		{
-			var start_moment = $.fullCalendar.moment(elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value);
-			var end_moment = $.fullCalendar.moment(elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value);
 
-			calEvent.title = elements['task-title'].value;
-			calEvent.start = start_moment;
-			calEvent.end = end_moment;
-			// calEvent.start = elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value;
-			// calEvent.end = elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value;
-			$('#calendar').fullCalendar('updateEvent', calEvent);
-		}
-		else
-		{
-			console.error("error");
-		}
-
+		// regexp decoupe
+		// calEvent.title = elements['task-title'].value;
+		//
+		// $('#calendar').fullCalendar('updateEvent', calEvent);
 	}
 }
 

@@ -8,7 +8,7 @@
     <div class="uk-modal-body">
       <div class="uk-margin uk-margin-remove-top">
         <label class="uk-form-label" for="task-title">Titre</label>
-        <input id="task-title" class="uk-input" type="text" placeholder="Nom de la tâche">
+        <input id="task-title" class="uk-input" type="text" placeholder="Nom de la tâche" required>
       </div>
       <div class="uk-margin">
         <label class="uk-form-label" for="task-priority">Priorité</label>
@@ -19,20 +19,26 @@
         </select>
       </div>
       <div id="task-color" class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-        <label class="uk-form-label" for="task-color">Couleur</label>
-        <label><input class="uk-radio" type="radio" name="radio2" checked>
-          A</label>
-        <label><input class="uk-radio" type="radio" name="radio2">
-          B</label>
+        <label class="uk-form-label uk-width-1-1" for="task-color">Couleur</label>
+        <ul class="uk-list uk-margin-small-bottom">
+          <li>
+            <span class="color-square color-square-1 uk-active">1</span>
+            <span class="color-square color-square-2">2</span>
+            <span class="color-square color-square-3">3</span>
+            <span class="color-square color-square-4">4</span>
+            <span class="color-square color-square-5">5</span>
+            <span class="color-square color-square-6">6</span>
+          </li>
+        </ul>
       </div>
       <!-- TIME OPTIONS -->
       <div class="uk-margin">
         <label class="uk-form-label" for="task-date-start">Du&nbsp;</label>
-        <input id="task-date-start" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-        <input id="task-schedule-start" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
+        <input id="task-date-start" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}" required>
+        <input id="task-schedule-start" type="time" data-uk-timepicker="{format:'DD.MM.YYYY'}" required>
         <label class="uk-form-label" for="task-date-end">&nbsp;Au&nbsp;</label>
-        <input id="task-date-end" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-        <input id="task-schedule-end" type="time" data-uk-timepicjer="{format:'DD.MM.YYYY'}">
+        <input id="task-date-end" type="date" data-uk-datepicker="{format:'DD.MM.YYYY'}" required>
+        <input id="task-schedule-end" type="time" data-uk-timepicker="{format:'DD.MM.YYYY'}" required>
       </div>
       <div class="uk-margin">
         <label class="uk-form-label" for="task-recurrence">Récurrence</label>
@@ -72,7 +78,7 @@
     </div>
     <div class="uk-modal-footer">
       <div class="uk-width-1-1 uk-text-center">
-        <button id="modal-event-submit-button" class="uk-button uk-button-primary uk-width-1-1">Ajouter la tâche</button>
+        <button id="modal-event-submit-button" class="uk-button uk-button-primary uk-width-1-1" type="submit">Ajouter la tâche</button>
       </div>
     </div>
   </fieldset>

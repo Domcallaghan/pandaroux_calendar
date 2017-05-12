@@ -16,10 +16,14 @@ class CalendarManager
 				addEventButton:
 				{
 					text: 'Ajouter une tâche',
-					click: () => {this.launchEventCreateModal()} // Beware of arrow and this
+					click: () =>
+					{
+						this.launchEventCreateModal()
+					} // Beware of arrow and this
 				}
 			},
-			eventClick: (calEvent, jsEvent, view) => {
+			eventClick: (calEvent, jsEvent, view) =>
+			{
 				this.launchEventUpdateModal(calEvent);
 			},
 			dayClick: () =>
@@ -30,12 +34,14 @@ class CalendarManager
 			header:
 			{
 				left: 'prev,next, today, addEventButton',
-		        center: 'title',
-		        right: 'month,agendaWeek,agendaDay',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay',
 			},
 
-			views: {
-				agenda: {
+			views:
+			{
+				agenda:
+				{
 					minTime: "06:00:00",
 					maxTime: "22:00:00",
 					columnFormat: 'dddd',
@@ -43,10 +49,12 @@ class CalendarManager
 					slotLabelFormat: 'H:mm',
 					allDaySlot: true
 				},
-				month: {
+				month:
+				{
 					columnFormat: 'dddd'
 				},
-				agendaCustomDay: {
+				agendaCustomDay:
+				{
 
 					type: 'agenda',
 					buttonText: 'Jour'
@@ -62,7 +70,8 @@ class CalendarManager
 	{
 		var modalObject = UIkit.modal.dialog(this.modalTemp); // check if data empty
 		console.log(modalObject);
-		$('#modal-event-submit-button').on('click', (e) => {
+		$('#modal-event-submit-button').on('click', (e) =>
+		{
 			e.preventDefault();
 			if(this.eventManager.create($('#modal-event-data')[0].elements))
 			{
@@ -93,12 +102,11 @@ class CalendarManager
 		$('#task-schedule-end').val(end_hour);
 
 
-		$('#modal-event-submit-button').on('click', (e) => {
+		$('#modal-event-submit-button').on('click', (e) =>
+		{
 			e.preventDefault();
 			this.eventManager.update($('#modal-event-data')[0].elements, calEvent); // calEvent is actual Event
 			modalObject.hide();
 		});
 	}
-
-
 }

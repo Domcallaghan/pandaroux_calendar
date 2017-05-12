@@ -23,9 +23,17 @@ class EventManager
 		}
 		else
 		{
+			// We highlight required input fields
+			$("input:required").addClass("uk-form-danger");
+
+			// We remove input danger class on focus
+			$("input:required").change(function()
+			{
+				$(this).removeClass("uk-form-danger");
+			});
 			UIkit.notification(
 			{
-				message: 'Erreur',
+				message: 'Remplissez les champs requis',
 				status: 'danger',
 				pos: 'top-center',
 				timeout: 1000
@@ -64,22 +72,10 @@ class EventManager
 
 	update(elements, calEvent)
 	{
-		if(this.verifyContent(elements))
-		{
-			var start_moment = $.fullCalendar.moment(elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value);
-			var end_moment = $.fullCalendar.moment(elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value);
 
-			calEvent.title = elements['task-title'].value;
-			calEvent.start = start_moment;
-			calEvent.end = end_moment;
-			// calEvent.start = elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value;
-			// calEvent.end = elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value;
-			$('#calendar').fullCalendar('updateEvent', calEvent);
-		}
-		else
-		{
-			console.error("error");
-		}
-
+		// regexp decoupe
+		// calEvent.title = elements['task-title'].value;
+		//
+		// $('#calendar').fullCalendar('updateEvent', calEvent);
 	}
 }
