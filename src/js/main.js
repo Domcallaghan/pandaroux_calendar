@@ -3,4 +3,5 @@
 
 	let calman = new CalendarManager();
 	calman.init();
+	
 })();

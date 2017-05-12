@@ -4,6 +4,7 @@ class EventManager
 	{
 		console.log("new Event manager");
 		this.events = [];
+
 	}
 
 	create(elements)
@@ -18,7 +19,6 @@ class EventManager
 			}
 			this.events.push(newEvent);
 			this.customRefetch();
-			$('#calendar').fullCalendar('addEventSource', this.events);
 			return true;
 		}
 		else
@@ -54,6 +54,7 @@ class EventManager
 	customRefetch()
 	{
 		$('#calendar').fullCalendar('removeEventSources');
+		$('#calendar').fullCalendar('addEventSource', this.events);
 	}
 
 	remove(id)
@@ -63,12 +64,22 @@ class EventManager
 
 	update(elements, calEvent)
 	{
-		
+		if(this.verifyContent(elements))
+		{
+			var start_moment = $.fullCalendar.moment(elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value);
+			var end_moment = $.fullCalendar.moment(elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value);
 
+			calEvent.title = elements['task-title'].value;
+			calEvent.start = start_moment;
+			calEvent.end = end_moment;
+			// calEvent.start = elements['task-date-start'].value + 'T' + elements['task-schedule-start'].value;
+			// calEvent.end = elements['task-date-end'].value + 'T' + elements['task-schedule-end'].value;
+			$('#calendar').fullCalendar('updateEvent', calEvent);
+		}
+		else
+		{
+			console.error("error");
+		}
 
-		// regexp decoupe
-		// calEvent.title = elements['task-title'].value;
-		//
-		// $('#calendar').fullCalendar('updateEvent', calEvent);
 	}
 }

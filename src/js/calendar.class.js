@@ -22,6 +22,10 @@ class CalendarManager
 			eventClick: (calEvent, jsEvent, view) => {
 				this.launchEventUpdateModal(calEvent);
 			},
+			dayClick: () =>
+			{
+				this.getEventSources();
+			},
 			timezone: 'local',
 			header:
 			{
@@ -50,7 +54,10 @@ class CalendarManager
 			}
 		});
 	}
-
+	getEventSources()
+	{
+		console.log($('#calendar').fullCalendar('getEventSources'));
+	}
 	launchEventCreateModal()
 	{
 		var modalObject = UIkit.modal.dialog(this.modalTemp); // check if data empty
@@ -66,10 +73,12 @@ class CalendarManager
 
 	launchEventUpdateModal(calEvent)
 	{
+		console.log(calEvent);
 		var modalObject = UIkit.modal.dialog(this.modalTemp);
 		$('#task-title').val(calEvent.title);
 
 		var start_rslt = Tools.getDateAndHour(calEvent.start._i);
+
 		var start_date = start_rslt[1];
 		var start_hour = start_rslt[2];
 
@@ -86,7 +95,7 @@ class CalendarManager
 
 		$('#modal-event-submit-button').on('click', (e) => {
 			e.preventDefault();
-			this.eventManager.update($('#modal-event-data')[0].elements, calEvent);
+			this.eventManager.update($('#modal-event-data')[0].elements, calEvent); // calEvent is actual Event
 			modalObject.hide();
 		});
 	}
